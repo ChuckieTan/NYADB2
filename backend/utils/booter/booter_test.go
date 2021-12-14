@@ -2,7 +2,7 @@ package booter_test
 
 import (
 	"bytes"
-	"nyadb2/backend/tbm/booter"
+	"nyadb2/backend/utils/booter"
 	"testing"
 )
 
@@ -12,7 +12,7 @@ func TestBooter(t *testing.T) {
 
 	bt.Update(raw)
 
-	if bytes.Compare(raw, bt.Load()) != 0 {
+	if !bytes.Equal(raw, bt.Load()) {
 		t.Fatal(raw, " ", bt.Load())
 	}
 }
